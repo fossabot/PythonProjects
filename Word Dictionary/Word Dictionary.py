@@ -7,7 +7,11 @@ Created on Thu Aug 16 20:05:56 2018
 
 import json
 import difflib
+<<<<<<< HEAD
 data=json.load( open("data.json","r") )
+=======
+data=json.load( open("076 data.json","r") )
+>>>>>>> master
 
 def meaning(word):
     word=word.lower()
