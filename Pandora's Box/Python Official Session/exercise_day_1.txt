@@ -1,0 +1,40 @@
+1) Write a Python program to calculate the length of a string.
+
+2) Write a Python program to count the number of characters (character frequency) in a string.
+
+3) Write a Python program to get a string made of the first 2 and the last 2 chars from a given a string. If the string length is less than 2, return instead of the empty string.
+
+4) Write a Python program to get a single string from two given strings, separated by a space and swap the first two characters of each string.
+
+5) Write a Python program to add 'ing' at the end of a given string (length should be at least 3). If the given string already ends with 'ing' then add 'ly' instead. If the string length of the given string is less than 3, leave it unchanged.
+
+6) Write a Python program to find the first appearance of the substring 'not' and 'poor' from a given string, if 'not' follows the 'poor', replace the whole 'not'...'poor' substring with 'good'. Return the resulting string.
+
+7) Write a Python program to find those numbers which are divisible by 7 and multiple of 5, between 1500 and 2700 (both included)
+
+8) Write a Python program that accepts a word from the user and reverse it.
+
+9) Write a Python program that prints all the numbers from 0 to 6 except 3 and 6.
+
+10) Write a Python program which iterates the integers from 1 to 50. For multiples of three print "Foo" instead of the number and for the multiples of five print "Boo". For numbers which are multiples of both three and five print "FooBoo".
+11) Prompt the user to input a value, until user enters some text.
+
+12) From the string "Monty Python's Flying Circus", display the words along with its length
+
+13) Prompt the user to input any numbers between 1 and 9. If User enters any other number, prompt the user to input again.
+If the user enters valid input, display the pattern.
+
+eg: If the user enters 5, display the pattern:
+1
+2 2
+3 3 3
+4 4 4 4
+5 5 5 5 5
+
+14) Take a list of strings. Filter the list which contains only palindrome.
+input list -> ['php', 'perl', 'mam']
+output list -> ['php', 'mam']
+
+15) Get the number from the user. Generate the list of square of 'n' numbers
+'eg:' If the user enters '5' - it should produce the output->
+[1, 4, 9, 16, 25]
