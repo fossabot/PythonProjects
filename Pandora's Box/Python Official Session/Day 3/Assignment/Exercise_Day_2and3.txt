@@ -1,0 +1,88 @@
+1) Get the string from the user. Count the number of each character from the string.
+
+'eg:' If the user enters 'php' - it should produce the output->
+{'p':2, 'h':1}
+
+-------------------------------------------------------------------
+
+2) Simulate the string.count function
+Write the function to count the number of given character in the string. The following are the parameters:
+	string
+	char that needs to be counted
+	start_pos, by default it is 0
+	end_pos, by default it is the length of the string (end_pos=-1)
+
+end_pos = -1
+if end_pos == -1:
+	end_pos = len(str)
+
+func('php', 'p', 1) => 1
+func('phphp', 'hp', 1, 3) => 1
+
+Note: string.count should not be used
+
+-------------------------------------------------------------------
+
+3) Write a lambda expression that returns the list of key-value pairs from the dictionary passed.
+
+{'name':'ravi', 'loc':'chennai'}
+[('name', 'ravi'), ('loc', 'chennai')]
+
+-------------------------------------------------------------------
+
+4) Create the file that contains mail ids along with some other contents.
+Extract only the mail ids from the file, which follows the below pattern:
+
+Starts with 5 alphabets followed by either '_' or '.' and followed by any 3 digits. The domain name should be 'allstate.com'.
+
+(eg):
+Valid Mail Ids - mohan_528@allstate.com; mohan.528@allstate.com
+
+-------------------------------------------------------------------
+
+5) Get the string from the user. Validate whether it is the aadhar/credit card number.
+
+-------------------------------------------------------------------
+
+6) Extract only the two letter words from the file.
+
+-------------------------------------------------------------------
+
+7) Create A Class 'Account' which should contain the following variables and methods:
+
+a) Account Name - Name of the account holder
+b) Account Number
+c) Account Branch
+d) Account Type
+e) Account Balance - Private Variable
+
+Methods:
+display_customer_details
+the details of the account in string format
+
+get_balance
+display the account balance
+
+withdraw
+if the balance is lesser than 5000, cannot be withdrawn
+If the balance is greater than 5000, amount can be withdrawn and display the balance amount
+
+deposit
+Deposits the given amount
+
+Handle the exception wherever is required.
+
+-------------------------------------------------------------------
+
+8) Create the file which contains 50 to 100 lines depends on the user input and perform the following operations:
+	a) Extract only the first 10 lines from the file
+	b) Extract only the last 10 lines from the file
+	c) Extract the range of lines depends on the user input
+	d) Extract only the even numbers of lines from the file
+	e) Extract only the odd numbers of lines from the file
+	f) Extract only the lines which contains the particular word.
+       Word can be retrieved from the user as an input during the runtime.
+
+-------------------------------------------------------------------
+
+
