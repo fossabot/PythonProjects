@@ -6,6 +6,7 @@ Created on Sat Dec 15 18:52:01 2018
 @author: jmat
 """
 
+
 def str_cnt(string, ch, start_pos=0, end_pos=-1 ):
     cur_pos=start_pos
     cnt=0
