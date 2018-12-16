@@ -10,18 +10,20 @@ Created on Sat Dec 15 18:52:01 2018
 def str_cnt(string, ch, start_pos=0, end_pos=-1 ):
     cur_pos=start_pos
     cnt=0
-    end_pos = len(string) if end_pos== -1 else end_pos
-    #print(string[end_pos])
-    print(string[cur_pos:end_pos])
-    for i in string[cur_pos:end_pos]:
-        print(i)
-        print (cur_pos)
-        print(string[cur_pos:end_pos] )
-        print(cnt, "\n")
-        cur_pos+=1
-        #cur_pos=string[cur_pos:end_pos].find(ch)+1 
-        cnt+=1
-    return cnt
+    if end_pos == -1 :
+        end_pos=len(string)
 
-print ( str_cnt('pha','p') )
-#print("phphp".count("ph",1,3))
+    while True:
+        cur_pos=string.find(ch,cur_pos,end_pos)
+       # print(cur_pos)
+        if cur_pos == -1:
+            break
+        else:
+            cnt+=1
+        cur_pos+=1
+    print("No of occurences of",ch,"in ", string," with start pos",
+          start_pos," and end position",end_pos," is "  ,cnt)
+
+str_cnt('phphp','hp',1,3)
+#print ( str_cnt('php','p'))
+#print("phphp".count("hp",1,3))
