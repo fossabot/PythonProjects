@@ -1,0 +1,14 @@
+--------------------------------------------------
+val_mail_id took 3.0 seconds to complete
+Mail Id -> Valid Mail Id
+--------------------------------------------------
+get_palin took 2.0 seconds to complete
+Palin List -> ['php', 'mam']
+--------------------------------------------------
+Reference ->  <function set_delay.<locals>.measure_time_taken.<locals>.exec_function at 0x10e958510>
+val_mail_id took 3.0 seconds to complete
+Output -> Invalid Mail Id
+--------------------------------------------------
+display_usr took 5.0 seconds to complete
+Display -> Welcome to Decorators
+--------------------------------------------------

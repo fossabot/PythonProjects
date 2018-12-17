@@ -1,0 +1,10 @@
+--------------------------------------------------
+Employee -> {'emp1': {'name': 'Tris', 'location': 'Chennai', 'team': 'Development'}} -> <class 'dict'>
+--------------------------------------------------
+{"emp1": {"name": "Tris", "location": "Chennai", "team": "Development"}} -> <class 'str'>
+--------------------------------------------------
+{'emp1': {'name': 'Tris', 'location': 'Chennai', 'team': 'Development'}} -> <class 'dict'>
+--------------------------------------------------
+emp1 -> {'name': 'Tris', 'location': 'Chennai', 'team': 'Development'}
+Name of emp1 -> Tris
+--------------------------------------------------
