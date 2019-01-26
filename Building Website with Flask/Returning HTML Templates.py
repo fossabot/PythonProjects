@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Created on Sat Jan 26 06:31:52 2019
+Created on Sat Jan 26 06:41:03 2019
 
 @author: jmat
 """
@@ -11,7 +11,7 @@ app=Flask(__name__)
 
 @app.route('/')
 def home():
-    return "This is my Homepage"
+    return render_template("home.html")
 
 
 @app.route('/about/')
