@@ -9,7 +9,7 @@ from tkinter import *
 
 window=Tk()
 
-b1=Button(window,text="Subscribe to PewdiePie")
+b1=Button(window,text="Execute")
 
 #Either use pack or grid function to add the button to main window
 #b1.pack()
