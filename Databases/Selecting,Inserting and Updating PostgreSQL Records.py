@@ -5,25 +5,28 @@ Created on Wed Jan 30 11:49:30 2019
 @author: jmat
 """
 
-import psychopg2
+import psycopg2
 
 def create_table():
-    conn=sqlite3.connect("lite.db")
+    conn=psycopg2.connect("dbname='database1' user='postgres' password='1234' host='localhost' port='5432'" )
     cur=conn.cursor()
     cur.execute("CREATE TABLE IF NOT EXISTS store (item TEXT , quantity INTEGER,  price REAL )")
-    cur.execute("INSERT INTO store VALUES ( 'Wine Glass',8,10.5)  ")
+    #cur.execute("INSERT INTO store VALUES ( 'Wine Glass',8,10.5)  ")
     conn.commit()
     conn.close()
 
 def insert(item,quantity,price):
-    conn=sqlite3.connect("lite.db")
+    conn=psycopg2.connect("dbname='database1' user='postgres' password='1234' host='localhost' port='5432'" )
     cur=conn.cursor()
-    cur.execute("INSERT INTO store VALUES (?,?,?)", (item,quantity,price))
+#   cur.execute("INSERT INTO store VALUES ('%s','%s','%s')" % (item,quantity,price) ) 
+## Above statement is Vulnerable to SQL Injection
+    cur.execute("INSERT INTO store VALUES (%s,%s,%s)", (item,quantity,price) )  
+
     conn.commit()
     conn.close()
     
 def view():
-    conn=sqlite3.connect("lite.db")
+    conn=psycopg2.connect("dbname='database1' user='postgres' password='1234' host='localhost' port='5432'" )
     cur=conn.cursor()
     cur.execute("SELECT * FROM store")
     rows=cur.fetchall()
@@ -32,15 +35,27 @@ def view():
 
 
 def delete(item):
-    conn=sqlite3.connect("lite.db")
+    conn=psycopg2.connect("dbname='database1' user='postgres' password='1234' host='localhost' port='5432'" )
     cur=conn.cursor()
-    cur.execute("DELETE FROM store WHERE item=?",(item,))
+    cur.execute("DELETE FROM store WHERE item=%s",(item,))
     conn.commit()
     conn.close()
 
-#conn=sqlite3.connect("lite.db")
-#cur=conn.cursor()
-#conn.close()
-delete('Coffee Glass')
-print(view())
+def update(quantity,price,item):
+    conn=psycopg2.connect("dbname='database1' user='postgres' password='1234' host='localhost' port='5432'" )
+    cur=conn.cursor()
+    cur.execute("UPDATE store SET quantity= %s ,price=%s WHERE item=%s", (quantity,price,item))
+    conn.commit()
+    conn.close()
 
+create_table()
+
+insert("Coffee Cup",12,6.5)
+#print( view() )
+
+#delete("Coffee Cup")
+#print( view() )
+
+print( view() )
+update(20,15,"Coffee Cup")
+print( view() )
