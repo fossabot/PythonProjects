@@ -47,16 +47,16 @@ def delete(id):
 def update(id,title,author,year,isbn):
     conn=sqlite3.connect("books.db")
     cur=conn.cursor()
-    cur.execute("UPDATE book SET title=? , author=?, year=?,isbn=? WHERE id=?",(id,title,author,year,isbn))
+    cur.execute("UPDATE book SET title=? , author=?, year=?,isbn=? WHERE id=?",(title,author,year,isbn,id))
     conn.commit()
     conn.close() 
     
 
 connect()
-print( view() )
-insert("Holy Grail","Monty Python",1975,123453321) 
+#print( view() )
+#insert("Holy Grail","Monty Python",1975,123453321) 
 #print( view() ) 
-#print(search(author="Monty Python"))  
+#print(search(title="Sherlock Holmes"))  
 #delete(2)
-update(2,"Holy Grail","Python",1975,1234321)
-print( view() )
+#update(2,"Holy Grail","Python",1975,1234321)
+#print( view() )
