@@ -22,29 +22,33 @@ User can:
 from tkinter import *
 from backend import Database
 
-database=Database()
+database=Database("books.db")
 window=Tk()
 
 def get_selected_row(event):
-    global selected_tuple
-    index=list1.curselection()[0] ##To slice the id from tuple
-    #print (index)
-    selected_tuple=list1.get(index)
-    
-    ##To enter the details selected back in the text fields
-    e1.delete(0,END)
-    e1.insert(END,selected_tuple[1])
-    
-    e2.delete(0,END)
-    e2.insert(END,selected_tuple[2])
-    
-    e3.delete(0,END)
-    e3.insert(END,selected_tuple[3])
-    
-    e4.delete(0,END)
-    e4.insert(END,selected_tuple[4])
-    
-    return(selected_tuple)
+    try:
+        global selected_tuple
+        index=list1.curselection()[0] ##To slice the id from tuple
+        #print (index)
+        selected_tuple=list1.get(index)
+        
+        ##To enter the details selected back in the text fields
+        e1.delete(0,END)
+        e1.insert(END,selected_tuple[1])
+        
+        e2.delete(0,END)
+        e2.insert(END,selected_tuple[2])
+        
+        e3.delete(0,END)
+        e3.insert(END,selected_tuple[3])
+        
+        e4.delete(0,END)
+        e4.insert(END,selected_tuple[4])
+    except IndexError:
+        pass
+        
+        return(selected_tuple)
+
 
 def view_command():
     list1.delete(0,END) ## To make sure the entries are not repeated when button is clicked again
