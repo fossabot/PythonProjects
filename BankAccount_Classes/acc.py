@@ -18,18 +18,34 @@ class Account:
 
     def deposit(self,amount):
         self.balance=self.balance+amount
-
+    
     def commit(self):
         with open(self.path,"w") as file:
             file.write(str( self.balance) )
 
-            
+class Checking(Account):
+       
+    def __init__(self,filepath,fee):
+        Account.__init__(self,filepath)
+        self.fee=fee
+    
+    def transfer(self,amount):
+        self.balance=self.balance-amount-self.fee
+    
+
+#
+#account=Account("balance.txt")
+##print(account)
+##print(account.balance)
+#account.deposit(3000)
+##print(account.balance)
+#account.commit()
 
 
-account=Account("balance.txt")
-#print(account)
-#print(account.balance)
-account.deposit(3000)
-#print(account.balance)
-account.commit()
+checking=Checking("balance.txt",1)
+#checking.deposit(10)
+print(checking.balance)
+checking.transfer(1000)
+print(checking.balance)
+checking.commit()
 
