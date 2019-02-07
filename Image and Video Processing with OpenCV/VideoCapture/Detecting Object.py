@@ -29,8 +29,17 @@ while True:
     
     delta_frame=cv2.absdiff(first_frame,gray)
     thresh_delta=cv2.threshold(delta_frame,20,255,cv2.THRESH_BINARY)[1]
+<<<<<<< HEAD
+=======
     
     
+    thresh_delta=cv2.dilate(thresh_delta,None,iterations=5)
+>>>>>>> master
+    
+    #print(gray)
+    #print(delta_frame)
+    
+<<<<<<< HEAD
     thresh_delta=cv2.dilate(thresh_delta,None,iterations=5)
     
     #print(gray)
@@ -38,15 +47,24 @@ while True:
     
     (cnts,_)=cv2.findContours(thresh_delta.copy(),cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
     
+=======
+    (cnts,_)=cv2.findContours(thresh_delta.copy(),cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
+    
+>>>>>>> master
     for contour in cnts:
         if cv2.contourArea(contour)< 10000:
             continue
         status=1
         (x,y,w,h)=cv2.boundingRect(contour)
         cv2.rectangle(frame,(x,y),(x+w,y+h), (0,255,0),3  )
+<<<<<<< HEAD
     status_list.append(status)
     if status_list[-1]-status_list[-2]!=0:
         times.append(datetime.now())
+=======
+     
+        
+>>>>>>> master
         
     cv2.imshow("Grey",gray)
     cv2.imshow("Delta",delta_frame)
@@ -61,11 +79,16 @@ while True:
         if status==1:
             times.append(datetime.now())
         break
+<<<<<<< HEAD
 #print(status_list)
 #print(times)
 for i in range(0,len(times),2):
     df=df.append( {"Start":times[i], "End":times[i+1]} ,ignore_index=True )
     
 df.to_csv("MotionDetectedTimes.csv")
+=======
+    print(status)
+    
+>>>>>>> master
 video.release()
 cv2.destroyAllWindows()
