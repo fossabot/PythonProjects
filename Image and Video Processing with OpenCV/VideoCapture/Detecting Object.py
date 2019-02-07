@@ -36,6 +36,14 @@ while True:
     #print(gray)
     #print(delta_frame)
     
+
+    thresh_delta=cv2.dilate(thresh_delta,None,iterations=5)
+    
+    #print(gray)
+    #print(delta_frame)
+    
+    (cnts,_)=cv2.findContours(thresh_delta.copy(),cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
+    
     (cnts,_)=cv2.findContours(thresh_delta.copy(),cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
     
     for contour in cnts:
@@ -47,6 +55,8 @@ while True:
     status_list.append(status)
     if status_list[-1]-status_list[-2]!=0:
         times.append(datetime.now())
+     
+        
         
     cv2.imshow("Grey",gray)
     cv2.imshow("Delta",delta_frame)
@@ -67,5 +77,7 @@ for i in range(0,len(times),2):
     df=df.append( {"Start":times[i], "End":times[i+1]} ,ignore_index=True )
     
 df.to_csv("MotionDetectedTimes.csv")
+    print(status)
+    
 video.release()
 cv2.destroyAllWindows()
