@@ -28,21 +28,14 @@ while True:
         continue
     
     delta_frame=cv2.absdiff(first_frame,gray)
-    thresh_delta=cv2.threshold(delta_frame,20,255,cv2.THRESH_BINARY)[1]
+    thresh_delta=cv2.threshold(delta_frame,42,255,cv2.THRESH_BINARY)[1]
     
     
     thresh_delta=cv2.dilate(thresh_delta,None,iterations=5)
     
-    #print(gray)
-    #print(delta_frame)
-    
-
-    thresh_delta=cv2.dilate(thresh_delta,None,iterations=5)
     
     #print(gray)
     #print(delta_frame)
-    
-    (cnts,_)=cv2.findContours(thresh_delta.copy(),cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
     
     (cnts,_)=cv2.findContours(thresh_delta.copy(),cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
     
@@ -58,13 +51,13 @@ while True:
      
         
         
-    cv2.imshow("Grey",gray)
-    cv2.imshow("Delta",delta_frame)
-    cv2.imshow("Threshold Frame",thresh_delta)
-    cv2.imshow("Color Frame",frame)
+#    cv2.imshow("Grey",gray)
+#    cv2.imshow("Delta",delta_frame)
+#    cv2.imshow("Threshold Frame",thresh_delta)
+#    cv2.imshow("Color Frame",frame)
    
-    #resize_image=cv2.resize(  frame,( int(frame.shape[1]/3), int(frame.shape[0]/3)  )  )
-    #cv2.imshow("Capturing",resize_image)
+    resize_image=cv2.resize(  frame,( int(frame.shape[1]/3), int(frame.shape[0]/3)  )  )
+    cv2.imshow("Capturing",resize_image)
     
     key=cv2.waitKey(1)
     if key==ord('q'):
@@ -77,7 +70,7 @@ for i in range(0,len(times),2):
     df=df.append( {"Start":times[i], "End":times[i+1]} ,ignore_index=True )
     
 df.to_csv("MotionDetectedTimes.csv")
-    print(status)
+print(status)
     
 video.release()
 cv2.destroyAllWindows()
