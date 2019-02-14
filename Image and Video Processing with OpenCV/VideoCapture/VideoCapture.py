@@ -20,7 +20,7 @@ while True:
     
     #gray=cv2.cvtColor(frame,cv2.COLOR_BGR2GRAY)
     
-    resize_image=cv2.resize(  frame,( int(frame.shape[1]/2), int(frame.shape[0]/2)  )  )
+    resize_image=cv2.resize(  frame,( int(frame.shape[1]/5), int(frame.shape[0]/5)  )  )
     #cv2.namedWindow("window",0)
     #cv2.moveWindow("window",100,100)
     cv2.imshow("window",resize_image)
